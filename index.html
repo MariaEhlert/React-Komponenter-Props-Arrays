@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>HTML Template til React</title>
+  </head>
+  <body>
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+    //Her skal du indsætte din react kode
+
+    //deklarere array
+    const arrList = [
+        "Kage",
+        "Gratis mad",
+        "Hjemmelavet mad",
+        "Mad lavet med kærlighed",
+        "Dansk mad",
+    ];
+
+    //et komponent for at vise detaljerne fra arrayet
+    const List = (props) => {
+        return (
+            <li>
+                {props.text}
+            </li>
+        )
+    }
+    //kalder komponent med props, arrayets elementer
+    function App() {
+        return (
+            //tilgå arrayet med metoden map()
+            <ul>
+                {arrList.map((value, index, array) => {
+                    return <List key={index} text={value} />;
+                })}
+            </ul>
+        )
+    }
+
+    ReactDOM.render(
+        <App />,
+        document.getElementById('root')
+    )
+
+    </script>
+
+  </body>
+</html>
